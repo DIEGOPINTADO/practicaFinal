@@ -16,16 +16,20 @@
 
     <div class="container">
         <div class="col-md-12">
-            <h3>Ordenes de compra</h3>
 
+            <div th:if="${message_ok}" th:text="${message_ok}" class="alert alert-success" role="alert">
+
+            </div>
+            <div th:if="${message_error}" th:text="${message_error}" class="alert alert-danger" role="alert">
+
+            </div>
+
+            <h3>Ordenes de compra</h3>
             <div>
 
                 <form action="#" method="post"  th:action="@{/cita/save}"  th:object="${cita}">
 
-                    <div class="mb-3">
-                        <label for="citaId" class="form-label">cita ID</label>
-                        <input type="number" class="form-control" id="citaId" th:field="*{citaID}" >
-                    </div>
+                    <h3>ID Automatico</h3>
                     <div class="mb-3">
                         <label for="doctorName" class="form-label">Nombre Doctor</label>
                         <input type="text" class="form-control" id="doctorName" th:field="*{doctorName}" >
@@ -44,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Fecha</label>
-                        <input type="datetime-local" class="form-control" id="date" th:field="*{date}" >
+                        <input type="date" class="form-control" id="date" th:field="*{date}" >
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Datos</button>
 
